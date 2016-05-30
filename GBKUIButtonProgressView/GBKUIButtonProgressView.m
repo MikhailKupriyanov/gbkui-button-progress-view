@@ -88,7 +88,7 @@ typedef NS_ENUM(NSInteger, GBKUIButtonProgressState) {
     self.borderView.layer.borderColor = self.tintColor.CGColor;
     self.borderView.layer.cornerRadius = 2.5;
     self.borderView.layer.borderWidth = 1;
-    self.titleLabel.font = [UIFont systemFontOfSize:15.0];
+    self.titleLabel.font = [UIFont systemFontOfSize:13.0];
     self.titleLabel.textColor = self.tintColor;
     self.pause.tintColor = self.tintColor;
     
@@ -202,14 +202,14 @@ typedef NS_ENUM(NSInteger, GBKUIButtonProgressState) {
 
 - (void) setInitialTitle:(NSString*)title {
     if(self.state == GBKUIButtonProgressInitial) {
-        self.titleLabel.text = title.uppercaseString;
+        self.titleLabel.text = title;
     }
     _initialTitle = title;
 }
 
 -(void)setCompleteTitle:(NSString *)completeTitle {
     if(self.state == GBKUIButtonProgressCompleted) {
-        self.titleLabel.text = completeTitle.uppercaseString;
+        self.titleLabel.text = completeTitle;
     }
     _completeTitle = completeTitle;
 }
