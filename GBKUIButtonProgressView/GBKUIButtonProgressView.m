@@ -291,14 +291,14 @@ typedef NS_ENUM(NSInteger, GBKUIButtonProgressState) {
     [self setProgress:1 animated:NO];
     // if the state is initial, the we just change the title and we're complete
     if (self.state == GBKUIButtonProgressInitial) {
-        self.titleLabel.text = self.completeTitle.uppercaseString;
+        self.titleLabel.text = self.completeTitle.capitalizedString;
         self.state = GBKUIButtonProgressCompleted;
         return;
     }
     
     // if the state is currently shrinking,
     if(self.state == GBKUIButtonProgressShrinking || self.state == GBKUIButtonProgressProgressing) {
-        self.titleLabel.text = self.completeTitle.uppercaseString;
+        self.titleLabel.text = self.completeTitle.capitalizedString;
         self.state = GBKUIButtonProgressExpandingToComplete;
         self.disabled = YES;
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -316,14 +316,14 @@ typedef NS_ENUM(NSInteger, GBKUIButtonProgressState) {
 - (void)reset {
     [self setProgress:0 animated:NO];
     if (self.state == GBKUIButtonProgressCompleted) {
-        self.titleLabel.text = self.initialTitle.uppercaseString;
+        self.titleLabel.text = self.initialTitle.capitalizedString;
         self.state = GBKUIButtonProgressInitial;
         return;
     }
     
     // if the state is currently shrinking,
     if(self.state == GBKUIButtonProgressShrinking || self.state == GBKUIButtonProgressProgressing) {
-        self.titleLabel.text = self.initialTitle.uppercaseString;
+        self.titleLabel.text = self.initialTitle.capitalizedString;
         self.state = GBKUIButtonProgressExpandingToInitial;
         dispatch_async(dispatch_get_main_queue(), ^{
             [self animateToButtonWithCompletion:^{
